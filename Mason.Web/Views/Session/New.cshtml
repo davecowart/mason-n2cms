@@ -1,0 +1,24 @@
+﻿@model Mason.Web.Models.ViewModels.Session.LoginModel
+
+@{
+	ViewBag.Title = "Log In";
+}
+
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm("Create", "Session", FormMethod.Post)) {
+	@Html.LabelFor(m => m.Username)
+	@Html.EditorFor(m => m.Username)
+	@Html.ValidationMessageFor(m => m.Username)
+
+	@Html.LabelFor(m => m.Password)
+	@Html.EditorFor(m => m.Password)
+	@Html.ValidationMessageFor(m => m.Password)
+	
+	@Html.LabelFor(m => m.RememberMe)
+	@Html.EditorFor(m => m.RememberMe)
+	
+	@Html.HiddenFor(m => m.ReturnUrl)
+	
+	<button type="submit">Log In</button>
+}
